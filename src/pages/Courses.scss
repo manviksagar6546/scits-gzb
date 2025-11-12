@@ -1,0 +1,135 @@
+// Animation delay classes for staggered animations
+.delay-0 {
+    animation-delay: 0s;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+// Course background gradients
+.course-blue {
+    background: linear-gradient(to bottom right, #3b82f6, #06b6d4);
+}
+
+.course-green {
+    background: linear-gradient(to bottom right, #22c55e, #10b981);
+}
+
+.course-orange {
+    background: linear-gradient(to bottom right, #f97316, #dc2626);
+}
+
+.course-purple {
+    background: linear-gradient(to bottom right, #a855f7, #ec4899);
+}
+
+.course-indigo {
+    background: linear-gradient(to bottom right, #6366f1, #3b82f6);
+}
+
+// Page layout
+.page-container {
+    min-height: 100vh;
+}
+
+// Hero section
+.hero-section {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    background-color: hsl(var(--secondary) / 0.3);
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        color: hsl(var(--primary));
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 768px) {
+            font-size: 3rem;
+        }
+    }
+
+    .hero-description {
+        font-size: 1.125rem;
+        color: hsl(var(--muted-foreground));
+    }
+}
+
+// Courses section
+.courses-section {
+    padding: 5rem 0;
+
+    .courses-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+// CTA section
+.cta-section {
+    padding: 5rem 0;
+    background-color: hsl(var(--secondary) / 0.3);
+
+    .cta-content {
+        max-width: 48rem;
+        margin: 0 auto;
+        text-align: center;
+
+        .cta-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+
+            @media (min-width: 768px) {
+                font-size: 2.25rem;
+            }
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+        }
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+}

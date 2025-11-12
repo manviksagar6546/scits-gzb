@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Users, BookOpen } from "lucide-react";
 import heroImage from "@/assets/hero-education.jpg";
-// import "..HeroSection.scss";
+import "./HeroSection.scss";
 
 const HeroSection = () => {
   const stats = [
@@ -32,7 +32,7 @@ const HeroSection = () => {
                 Welcome to SCITS Ghaziabad
               </span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Your Gateway to{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -40,20 +40,32 @@ const HeroSection = () => {
               </span>{" "}
               and Career Growth
             </h1>
-            
+
             <p className="text-lg text-muted-foreground max-w-xl">
-              Master essential digital skills with practical, job-oriented training at Ghaziabad's trusted computer institute. Start your journey towards a successful tech career today.
+              Master essential digital skills with practical, job-oriented
+              training at Ghaziabad's trusted computer institute. Start your
+              journey towards a successful tech career today.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="gradient-primary shadow-medium hover:shadow-strong transition-all group">
+                <Button
+                  size="lg"
+                  className="gradient-primary shadow-medium hover:shadow-strong transition-all group"
+                >
                   Enroll Now
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  <ArrowRight
+                    className="ml-2 group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
                 </Button>
               </Link>
               <Link to="/courses">
-                <Button size="lg" variant="outline" className="border-2 hover:border-primary">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 hover:border-primary"
+                >
                   Explore Courses
                 </Button>
               </Link>
@@ -62,13 +74,18 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               {stats.map((stat, index) => (
-                <div key={index} className="space-y-2 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div
+                  key={index}
+                  className={`space-y-2 animate-scale-in delay-${index}`}
+                >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                       <stat.icon className="w-4 h-4 text-primary" />
                     </div>
                   </div>
-                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  <p className="text-2xl font-bold text-foreground">
+                    {stat.value}
+                  </p>
                   <p className="text-xs text-muted-foreground">{stat.label}</p>
                 </div>
               ))}

@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import {
+  GraduationCap,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+  Youtube,
+} from "lucide-react";
+import "./Footer.scss";
 
 const Footer = () => {
   const quickLinks = [
@@ -34,7 +43,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              Your Gateway to Computer Education and Career Growth. Providing quality computer education since establishment.
+              Your Gateway to Computer Education and Career Growth. Providing
+              quality computer education since establishment.
             </p>
             <div className="flex gap-3">
               <a
@@ -60,7 +70,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.path}>
@@ -77,7 +89,9 @@ const Footer = () => {
 
           {/* Courses */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Our Courses</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Our Courses
+            </h3>
             <ul className="space-y-2">
               {courses.map((course) => (
                 <li key={course}>
@@ -94,10 +108,15 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Contact Us
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin size={18} className="text-primary mt-0.5 flex-shrink-0" />
+                <MapPin
+                  size={18}
+                  className="text-primary mt-0.5 flex-shrink-0"
+                />
                 <span>Near Main Market, Ghaziabad, Uttar Pradesh</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">

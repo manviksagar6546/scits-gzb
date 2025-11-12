@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
+import "./Contact.scss";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -37,51 +38,47 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="page-container">
       <Navbar />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contact Us</span>
-              <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                Get In Touch With Us
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Have questions about our courses? Want to schedule a visit? We're here to help!
+        <section className="hero-section">
+          <div className="container">
+            <div className="hero-content animate-fade-in-up">
+              <span className="hero-badge">Contact Us</span>
+              <h1 className="hero-title">Get In Touch With Us</h1>
+              <p className="hero-description">
+                Have questions about our courses? Want to schedule a visit?
+                We're here to help!
               </p>
             </div>
           </div>
         </section>
 
         {/* Contact Info Cards */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <section className="contact-section">
+          <div className="container">
+            <div className="contact-cards">
               {contactInfo.map((info, index) => (
                 <Card
                   key={index}
-                  className="p-6 text-center hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`contact-card hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-scale-in delay-${index}`}
                 >
-                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <info.icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="contact-icon">
+                    <info.icon />
                   </div>
-                  <h3 className="font-semibold mb-3">{info.title}</h3>
-                  <div className="space-y-1">
+                  <h3 className="contact-title">{info.title}</h3>
+                  <div className="contact-details">
                     {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-sm text-muted-foreground">
-                        {detail}
-                      </p>
+                      <p key={idx}>{detail}</p>
                     ))}
                   </div>
                 </Card>
               ))}
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="contact-form-section">
               {/* Contact Form */}
               <Card className="p-8 animate-fade-in-up">
                 <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
@@ -92,18 +89,32 @@ const Contact = () => {
                       <Input placeholder="Your name" required />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Phone Number *</label>
-                      <Input type="tel" placeholder="+91 XXXXX XXXXX" required />
+                      <label className="text-sm font-medium">
+                        Phone Number *
+                      </label>
+                      <Input
+                        type="tel"
+                        placeholder="+91 XXXXX XXXXX"
+                        required
+                      />
                     </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Email Address *</label>
-                    <Input type="email" placeholder="your.email@example.com" required />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Course Interested In</label>
+                    <label className="text-sm font-medium">
+                      Email Address *
+                    </label>
+                    <Input
+                      type="email"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">
+                      Course Interested In
+                    </label>
                     <select className="w-full px-3 py-2 border border-input rounded-lg bg-background">
                       <option>Select a course</option>
                       <option>Basic Computer Course</option>
@@ -123,7 +134,10 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full gradient-primary shadow-soft hover:shadow-medium transition-all">
+                  <Button
+                    type="submit"
+                    className="w-full gradient-primary shadow-soft hover:shadow-medium transition-all"
+                  >
                     Send Message
                   </Button>
                 </form>
@@ -147,8 +161,8 @@ const Contact = () => {
                   </div>
                   <div className="space-y-4">
                     <p className="text-muted-foreground">
-                      Our institute is conveniently located near the main market area of Ghaziabad, 
-                      easily accessible by public transport.
+                      Our institute is conveniently located near the main market
+                      area of Ghaziabad, easily accessible by public transport.
                     </p>
                     <Button variant="outline" className="w-full">
                       Get Directions

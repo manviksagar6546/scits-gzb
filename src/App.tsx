@@ -9,6 +9,7 @@ import Courses from "./pages/Courses";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import "./App.scss";
 
 const queryClient = new QueryClient();
 

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
+import "./Gallery.scss";
 
 const Gallery = () => {
   // Placeholder for gallery images - these would be replaced with actual images
@@ -16,32 +17,38 @@ const Gallery = () => {
     { title: "Modern Infrastructure", category: "Facilities" },
   ];
 
-  const categories = ["All", "Facilities", "Classes", "Workshops", "Events", "Achievements"];
+  const categories = [
+    "All",
+    "Facilities",
+    "Classes",
+    "Workshops",
+    "Events",
+    "Achievements",
+  ];
 
   return (
-    <div className="min-h-screen">
+    <div className="page-container">
       <Navbar />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">Gallery</span>
-              <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                Our Campus & Activities
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Take a virtual tour of our modern facilities, training sessions, and student activities
+        <section className="hero-section">
+          <div className="container">
+            <div className="hero-content animate-fade-in-up">
+              <span className="hero-badge">Gallery</span>
+              <h1 className="hero-title">Our Campus & Activities</h1>
+              <p className="hero-description">
+                Take a virtual tour of our modern facilities, training sessions,
+                and student activities
               </p>
             </div>
           </div>
         </section>
 
         {/* Filter Buttons */}
-        <section className="py-8 border-b border-border">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-3 animate-fade-in">
+        <section className="filter-section">
+          <div className="container">
+            <div className="filter-buttons animate-fade-in">
               {categories.map((category, index) => (
                 <button
                   key={index}
@@ -59,32 +66,39 @@ const Gallery = () => {
         </section>
 
         {/* Gallery Grid */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="gallery-section">
+          <div className="container">
+            <div className="gallery-grid">
               {galleryItems.map((item, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-strong transition-all duration-300 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.05}s` }}
+                  className={`gallery-item group overflow-hidden hover:shadow-strong transition-all duration-300 animate-scale-in delay-${index}`}
                 >
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
+                  <div className="gallery-image">
                     {/* Placeholder for image */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="gallery-placeholder">
                       <div className="text-center p-6">
                         <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                          <span className="text-2xl text-primary-foreground">📸</span>
+                          <span className="text-2xl text-primary-foreground">
+                            📸
+                          </span>
                         </div>
-                        <p className="font-semibold text-foreground">{item.title}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{item.category}</p>
+                        <p className="font-semibold text-foreground">
+                          {item.title}
+                        </p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {item.category}
+                        </p>
                       </div>
                     </div>
-                    
+
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <div className="text-center text-primary-foreground">
                         <p className="font-semibold text-lg">{item.title}</p>
-                        <p className="text-sm mt-1 opacity-90">{item.category}</p>
+                        <p className="text-sm mt-1 opacity-90">
+                          {item.category}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -95,15 +109,15 @@ const Gallery = () => {
         </section>
 
         {/* Info Section */}
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Visit Our Institute
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                We welcome you to visit our campus and experience our state-of-the-art facilities firsthand. 
-                Schedule a visit today and see why SCITS is the preferred choice for computer education in Ghaziabad.
+        <section className="info-section">
+          <div className="container">
+            <div className="info-content animate-fade-in">
+              <h2 className="info-title">Visit Our Institute</h2>
+              <p className="info-description">
+                We welcome you to visit our campus and experience our
+                state-of-the-art facilities firsthand. Schedule a visit today
+                and see why SCITS is the preferred choice for computer education
+                in Ghaziabad.
               </p>
               <div className="pt-4">
                 <a href="/contact" className="inline-block">

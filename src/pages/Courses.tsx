@@ -2,8 +2,18 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Monitor, TrendingUp, Calculator, Palette, Network, Clock, Users, Award } from "lucide-react";
+import {
+  Monitor,
+  TrendingUp,
+  Calculator,
+  Palette,
+  Network,
+  Clock,
+  Users,
+  Award,
+} from "lucide-react";
 import { Link } from "react-router-dom";
+import "./Courses.scss";
 
 const Courses = () => {
   const courses = [
@@ -12,7 +22,8 @@ const Courses = () => {
       title: "Basic Computer Course",
       duration: "3 Months",
       level: "Beginner",
-      description: "Complete foundation course covering essential computer skills for students and beginners",
+      description:
+        "Complete foundation course covering essential computer skills for students and beginners",
       topics: [
         "Computer Fundamentals & Hardware Basics",
         "Typing Skills & Speed Development",
@@ -23,14 +34,15 @@ const Courses = () => {
         "MS Access - Database Basics",
         "Internet & Email Management",
       ],
-      color: "from-blue-500 to-cyan-500",
+      slug: "blue",
     },
     {
       icon: TrendingUp,
       title: "Advanced Excel Course",
       duration: "2 Months",
       level: "Intermediate to Advanced",
-      description: "Master Excel for data analysis, reporting, and automation in business environments",
+      description:
+        "Master Excel for data analysis, reporting, and automation in business environments",
       topics: [
         "Advanced Formulas & Functions",
         "VLOOKUP, HLOOKUP & INDEX MATCH",
@@ -41,14 +53,15 @@ const Courses = () => {
         "Dashboard Creation & Reporting",
         "Power Query & Power Pivot",
       ],
-      color: "from-green-500 to-emerald-500",
+      slug: "green",
     },
     {
       icon: Calculator,
       title: "Tally Course (Basic & Advanced)",
       duration: "3 Months",
       level: "Beginner to Advanced",
-      description: "Complete accounting software training from fundamentals to advanced GST implementation",
+      description:
+        "Complete accounting software training from fundamentals to advanced GST implementation",
       topics: [
         "Tally Prime Basics & Interface",
         "Company Creation & Configuration",
@@ -59,14 +72,15 @@ const Courses = () => {
         "Financial Statements & Reports",
         "Inventory Management & Stock Analysis",
       ],
-      color: "from-orange-500 to-red-500",
+      slug: "orange",
     },
     {
       icon: Palette,
       title: "Graphic Design Basics",
       duration: "3 Months",
       level: "Beginner to Intermediate",
-      description: "Learn professional graphic design tools to create stunning visuals and branding materials",
+      description:
+        "Learn professional graphic design tools to create stunning visuals and branding materials",
       topics: [
         "Design Principles & Color Theory",
         "CorelDRAW - Vector Graphics & Illustration",
@@ -77,14 +91,15 @@ const Courses = () => {
         "Social Media Graphics",
         "Print & Digital Design Standards",
       ],
-      color: "from-purple-500 to-pink-500",
+      slug: "purple",
     },
     {
       icon: Network,
       title: "Networking for CCNA Exam Preparation",
       duration: "4 Months",
       level: "Intermediate to Advanced",
-      description: "Comprehensive networking course preparing you for CCNA certification and network administration",
+      description:
+        "Comprehensive networking course preparing you for CCNA certification and network administration",
       topics: [
         "Network Fundamentals & OSI Model",
         "IP Addressing & Subnetting",
@@ -95,51 +110,50 @@ const Courses = () => {
         "Cisco IOS Commands & Configuration",
         "Troubleshooting & Network Management",
       ],
-      color: "from-indigo-500 to-blue-500",
+      slug: "indigo",
     },
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="page-container">
       <Navbar />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Courses</span>
-              <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                Professional Training Programs
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Choose from our comprehensive range of industry-relevant courses designed to 
-                accelerate your career growth
+        <section className="hero-section">
+          <div className="container">
+            <div className="hero-content animate-fade-in-up">
+              <span className="hero-badge">Our Courses</span>
+              <h1 className="hero-title">Professional Training Programs</h1>
+              <p className="hero-description">
+                Choose from our comprehensive range of industry-relevant courses
+                designed to accelerate your career growth
               </p>
             </div>
           </div>
         </section>
 
         {/* Courses List */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="space-y-8">
+        <section className="courses-section">
+          <div className="container">
+            <div className="courses-list">
               {courses.map((course, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden hover:shadow-strong transition-all duration-300 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`overflow-hidden hover:shadow-strong transition-all duration-300 animate-fade-in-up delay-${index}`}
                 >
                   <div className="grid md:grid-cols-[300px_1fr] gap-8">
                     {/* Left Side - Course Info */}
-                    <div className={`p-8 bg-gradient-to-br ${course.color} text-white`}>
+                    <div className={`p-8 course-${course.slug} text-white`}>
                       <div className="space-y-6">
                         <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
                           <course.icon className="w-8 h-8" />
                         </div>
-                        
+
                         <div>
-                          <h2 className="text-2xl font-bold mb-2">{course.title}</h2>
+                          <h2 className="text-2xl font-bold mb-2">
+                            {course.title}
+                          </h2>
                           <p className="text-white/90">{course.description}</p>
                         </div>
 
@@ -170,7 +184,9 @@ const Courses = () => {
 
                     {/* Right Side - Topics */}
                     <div className="p-8">
-                      <h3 className="text-xl font-semibold mb-6">What You'll Learn</h3>
+                      <h3 className="text-xl font-semibold mb-6">
+                        What You'll Learn
+                      </h3>
                       <div className="grid md:grid-cols-2 gap-4">
                         {course.topics.map((topic, idx) => (
                           <div key={idx} className="flex items-start gap-3">
@@ -188,19 +204,21 @@ const Courses = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Ready to Start Learning?
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Join thousands of students who have transformed their careers with SCITS. 
-                Get expert training, recognized certification, and placement support.
+        <section className="cta-section">
+          <div className="container">
+            <div className="cta-content animate-fade-in">
+              <h2 className="cta-title">Ready to Start Learning?</h2>
+              <p className="cta-description">
+                Join thousands of students who have transformed their careers
+                with SCITS. Get expert training, recognized certification, and
+                placement support.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center pt-4">
+              <div className="cta-buttons">
                 <Link to="/contact">
-                  <Button size="lg" className="gradient-primary shadow-medium hover:shadow-strong transition-all">
+                  <Button
+                    size="lg"
+                    className="gradient-primary shadow-medium hover:shadow-strong transition-all"
+                  >
                     Enroll Now
                   </Button>
                 </Link>

@@ -5,10 +5,11 @@ import AboutSection from "@/components/home/AboutSection";
 import CoursesSection from "@/components/home/CoursesSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import CTASection from "@/components/home/CTASection";
+import "./Home.scss";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className="page-container">
       <Navbar />
       <main>
         <HeroSection />
