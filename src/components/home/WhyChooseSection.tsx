@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   Award,
   Users,
@@ -15,73 +16,97 @@ const WhyChooseSection = () => {
       icon: Users,
       title: "Experienced Trainers",
       description:
-        "Learn from industry experts with years of practical teaching experience",
+        "Learn from industry experts with years of practical and teaching experience.",
+      color: "from-blue-500 to-cyan-400",
     },
     {
       icon: Award,
       title: "Practical Learning",
       description:
-        "Hands-on training with real-world projects and live assignments",
+        "Gain hands-on experience through live projects, tools, and real-world challenges.",
+      color: "from-purple-500 to-pink-400",
     },
     {
       icon: DollarSign,
       title: "Affordable Fees",
       description:
-        "Quality education at competitive prices with flexible payment options",
+        "Access high-quality education at fair prices with flexible payment options.",
+      color: "from-green-500 to-emerald-400",
     },
     {
       icon: FileCheck,
       title: "Recognized Certificate",
       description:
-        "Industry-recognized certifications to boost your career prospects",
+        "Earn industry-approved certificates that validate your skills and boost your resume.",
+      color: "from-orange-500 to-red-400",
     },
     {
       icon: Briefcase,
       title: "Job Guidance",
-      description: "Career counseling and placement support for all students",
+      description:
+        "Get personalized career mentoring, resume support, and interview preparation.",
+      color: "from-indigo-500 to-blue-400",
     },
     {
       icon: Clock,
       title: "Flexible Timings",
       description:
-        "Multiple batch timings to suit working professionals and students",
+        "Multiple batch options to match your schedule, whether you’re a student or professional.",
+      color: "from-teal-500 to-cyan-400",
     },
   ];
 
   return (
-    <section className="py-20 bg-secondary/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-            What Makes SCITS Special
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            We're committed to providing the best learning experience and
-            ensuring your success
-          </p>
-        </div>
+    <section className="why-choose-section py-24 relative overflow-hidden">
+      <div className="why-bg"></div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
+          <span className="section-label">Why Choose Us</span>
+          <h2 className="section-title">What Makes SCITS Special</h2>
+          <p className="section-subtext">
+            We’re dedicated to providing an exceptional learning experience
+            backed by real expertise and proven results.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+        >
           {reasons.map((reason, index) => (
-            <Card
+            <motion.div
               key={index}
-              className={`p-8 hover:shadow-medium transition-all duration-300 hover:-translate-y-2 animate-scale-in bg-card group delay-${index}`}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 150 }}
             >
-              <div className="w-14 h-14 gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <reason.icon className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                {reason.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {reason.description}
-              </p>
-            </Card>
+              <Card className="reason-card group relative overflow-hidden p-8">
+                <div
+                  className={`icon-box bg-gradient-to-br ${reason.color} shadow-lg`}
+                >
+                  <reason.icon className="icon" />
+                </div>
+                <h3 className="reason-title">{reason.title}</h3>
+                <p className="reason-description">{reason.description}</p>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
