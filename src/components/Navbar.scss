@@ -1,0 +1,208 @@
+// Color Palette inspired by SCITS logo
+$primary-color: #c4161c;
+$primary-dark: #7a0000;
+$background-dark: #0d0000;
+$text-light: #ffffff;
+$text-muted: #d1cfcf;
+
+.navbar {
+  background: linear-gradient(135deg, $primary-dark, $background-dark);
+  box-shadow: 0 4px 25px rgba(196, 22, 28, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease-in-out;
+
+  &__container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+  .navbar__image {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: contain;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+
+    &:hover {
+      transform: scale(1.1) rotate(2deg);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  // Logo Section
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: $text-light;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    & .navbar__icon {
+      background: radial-gradient(circle, $primary-color, $primary-dark);
+      padding: 10px;
+      border-radius: 14px;
+      box-shadow: 0 0 15px rgba(196, 22, 28, 0.7);
+      transition: all 0.3s ease;
+
+      svg {
+        stroke: white;
+      }
+
+      &:hover {
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+      }
+    }
+
+    & .navbar__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+
+      .navbar__brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $text-light;
+        letter-spacing: 1px;
+      }
+
+      .navbar__location {
+        font-size: 0.75rem;
+        color: $text-muted;
+      }
+    }
+  }
+
+  // Desktop Links
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    a {
+      color: $text-muted;
+      font-weight: 500;
+      position: relative;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover,
+      &.active {
+        color: $text-light;
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width 0.3s ease;
+      }
+    }
+
+    .enroll-btn {
+      background: linear-gradient(45deg, $primary-color, $primary-dark);
+      color: $text-light;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(196, 22, 28, 0.6);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 25px rgba(255, 50, 50, 0.9);
+      }
+    }
+  }
+
+  // Mobile Menu Button
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: $text-light;
+    cursor: pointer;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      stroke: $text-light;
+      transition: stroke 0.3s ease;
+    }
+
+    &:hover svg {
+      stroke: $primary-color;
+    }
+  }
+
+  // Mobile Menu
+  &__mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, $primary-dark, $background-dark);
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+
+    &.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    a {
+      color: $text-light;
+      font-size: 1rem;
+      margin: 10px 0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: lighten($primary-color, 10%);
+      }
+    }
+
+    .mobile-btn {
+      margin-top: 10px;
+      padding: 0.7rem 1.5rem;
+    }
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    &__links {
+      display: none;
+    }
+
+    &__toggle {
+      display: block;
+    }
+  }
+}
