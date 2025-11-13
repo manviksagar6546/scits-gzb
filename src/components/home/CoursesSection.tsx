@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react";
+
 import {
   Monitor,
   TrendingUp,
@@ -78,6 +80,22 @@ const CoursesSection = () => {
         "Cisco IOS",
       ],
       color: "from-indigo-500 to-blue-500",
+    },
+    {
+      icon: Globe,
+      title: "Digital Marketing Mastery",
+      description:
+        "Learn digital marketing from scratch with practical strategies for SEO, social media, ads, and analytics.",
+      features: [
+        "Search Engine Optimization (SEO)",
+        "Social Media Marketing (Facebook, Instagram, LinkedIn)",
+        "Google Ads & PPC Campaigns",
+        "Email Marketing & Automation",
+        "Content Marketing Strategy",
+        "YouTube & Video Marketing",
+        "Analytics & Data Insights",
+      ],
+      color: "from-green-500 to-teal-500",
     },
   ];
 

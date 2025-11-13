@@ -33,19 +33,20 @@ const About = () => {
   ];
 
   return (
-    <div className="page-container">
+    <div className="about-page">
       <Navbar />
-
-      <main>
+      {/* logo image */}
+            <img src="/public/Images/banneer.png" alt="SCITS Logo" className="navbar__image" />
+      <main className="about-main">
         {/* Hero Section */}
-        <section className="hero-section">
-          <div className="container">
-            <div className="hero-content animate-fade-in-up">
-              <span className="hero-badge">About SCITS</span>
-              <h1 className="hero-title">
+        <section className="about-hero">
+          <div className="about-container">
+            <div className="about-hero-content">
+              <span className="about-badge">About SCITS</span>
+              <h1 className="about-title">
                 Building Digital Excellence Since Establishment
               </h1>
-              <p className="hero-description">
+              <p className="about-description">
                 SCITS (Smart Computer Institute of Technology) is Ghaziabad's
                 trusted destination for quality computer education and
                 professional skill development.
@@ -55,20 +56,17 @@ const About = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="stats-section">
-          <div className="container">
-            <div className="stats-grid">
+        <section className="about-stats">
+          <div className="about-container">
+            <div className="about-stats-grid">
               {achievements.map((achievement, index) => (
-                <div
-                  key={index}
-                  className={`stat-item animate-scale-in delay-${index}`}
-                >
-                  <div className="stat-icon">
+                <div key={index} className="about-stat-item">
+                  <div className="about-stat-icon">
                     <achievement.icon />
                   </div>
-                  <div>
-                    <p className="stat-value">{achievement.value}</p>
-                    <p className="stat-label">{achievement.label}</p>
+                  <div className="about-stat-text">
+                    <p className="about-stat-value">{achievement.value}</p>
+                    <p className="about-stat-label">{achievement.label}</p>
                   </div>
                 </div>
               ))}
@@ -77,19 +75,18 @@ const About = () => {
         </section>
 
         {/* Mission, Vision, Values */}
-        <section className="values-section">
-          <div className="container">
-            <div className="values-grid">
+        <section className="about-values">
+          <div className="about-container">
+            <div className="about-values-grid">
               {values.map((value, index) => (
-                <Card
-                  key={index}
-                  className={`value-card hover:shadow-medium transition-all duration-300 hover:-translate-y-2 animate-fade-in-up delay-${index}`}
-                >
-                  <div className="value-icon">
+                <Card key={index} className="about-value-card">
+                  <div className="about-value-icon">
                     <value.icon />
                   </div>
-                  <h3 className="value-title">{value.title}</h3>
-                  <p className="value-description">{value.description}</p>
+                  <h3 className="about-value-title">{value.title}</h3>
+                  <p className="about-value-description">
+                    {value.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -97,12 +94,12 @@ const About = () => {
         </section>
 
         {/* Detailed About Content */}
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-              <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+        <section className="about-details">
+          <div className="about-container">
+            <div className="about-details-content">
+              <div className="about-story">
+                <h2>Our Story</h2>
+                <p>
                   Founded with a vision to make quality computer education
                   accessible to everyone, SCITS has grown to become one of
                   Ghaziabad's most trusted names in professional training. What
@@ -110,7 +107,7 @@ const About = () => {
                   lives, helping students and professionals achieve their career
                   goals.
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p>
                   Our institute is equipped with modern infrastructure,
                   including state-of-the-art computer labs, experienced faculty,
                   and a curriculum that's constantly updated to match industry
@@ -120,48 +117,49 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="bg-card rounded-2xl shadow-soft p-8 md:p-12">
-                <h2 className="text-3xl font-bold mb-6">What Sets Us Apart</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+              <div className="about-unique">
+                <h2>What Sets Us Apart</h2>
+                <div className="about-unique-points">
+                  <div className="about-point">
+                    <div className="about-dot" />
                     <div>
-                      <h4 className="font-semibold mb-2">
-                        Industry-Relevant Curriculum
-                      </h4>
-                      <p className="text-muted-foreground">
+                      <h4>Industry-Relevant Curriculum</h4>
+                      <p>
                         Our courses are designed in consultation with industry
                         experts to ensure you learn skills that are in high
                         demand.
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+
+                  <div className="about-point">
+                    <div className="about-dot" />
                     <div>
-                      <h4 className="font-semibold mb-2">Small Batch Sizes</h4>
-                      <p className="text-muted-foreground">
+                      <h4>Small Batch Sizes</h4>
+                      <p>
                         We maintain small class sizes to ensure every student
                         gets personalized attention and guidance from trainers.
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+
+                  <div className="about-point">
+                    <div className="about-dot" />
                     <div>
-                      <h4 className="font-semibold mb-2">Placement Support</h4>
-                      <p className="text-muted-foreground">
+                      <h4>Placement Support</h4>
+                      <p>
                         We provide comprehensive job placement assistance,
                         including resume building, interview preparation, and
                         direct connections with hiring companies.
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+
+                  <div className="about-point">
+                    <div className="about-dot" />
                     <div>
-                      <h4 className="font-semibold mb-2">Lifetime Support</h4>
-                      <p className="text-muted-foreground">
+                      <h4>Lifetime Support</h4>
+                      <p>
                         Even after course completion, we remain available to
                         answer your questions and provide guidance throughout
                         your career.

@@ -50,7 +50,7 @@ $text-muted: #d1cfcf;
     }
 
     & .navbar__icon {
-      background: radial-gradient(circle, $primary-color, $primary-dark);
+      background: #ffffff;
       padding: 10px;
       border-radius: 14px;
       box-shadow: 0 0 15px rgba(196, 22, 28, 0.7);
@@ -86,16 +86,23 @@ $text-muted: #d1cfcf;
 
   // Desktop Links
   &__links {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 2rem;
 
     a {
+      // color: $text-muted;
+      // font-weight: 500;
+      // position: relative;
+      // text-decoration: none;
+      // transition: all 0.3s ease;
+      position: relative;
       color: $text-muted;
       font-weight: 500;
-      position: relative;
       text-decoration: none;
-      transition: all 0.3s ease;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
 
       &:hover,
       &.active {
@@ -184,9 +191,9 @@ $text-muted: #d1cfcf;
       text-decoration: none;
       transition: all 0.3s ease;
 
-      &:hover {
-        // color: lighten($primary-color, 10%);
-      }
+      // &:hover {
+      //   // color: lighten($primary-color, 10%);
+      // }
     }
 
     .mobile-btn {

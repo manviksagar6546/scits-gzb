@@ -5,63 +5,54 @@ import "./CTASection.scss";
 
 const CTASection = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 gradient-hero opacity-10" />
+    <section className="cta-section">
+      {/* Animated Gradient Background */}
+      <div className="cta-bg"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
-          <div>
-            <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-              Ready to Start?
-            </span>
-          </div>
+      <div className="cta-container">
+        <div className="cta-content">
+          <span className="cta-badge">Ready to Start?</span>
 
-          <h2 className="text-3xl md:text-5xl font-bold">
-            Join SCITS Today and Transform Your Career
+          <h2 className="cta-title">
+            Join <span className="highlight">SCITS</span> Today and Transform Your Career
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Take the first step towards mastering essential computer skills.
-            Enroll now and get access to expert trainers, practical learning,
+          <p className="cta-description">
+            Take the first step toward mastering essential computer skills. 
+            Enroll now and gain access to expert trainers, hands-on learning, 
             and industry-recognized certifications.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center pt-4">
+          <div className="cta-buttons">
             <Link to="/contact">
-              <Button
-                size="lg"
-                className="gradient-primary shadow-medium hover:shadow-strong transition-all group"
-              >
+              <Button size="lg" className="cta-primary-btn">
                 Enroll Now
-                <ArrowRight
-                  className="ml-2 group-hover:translate-x-1 transition-transform"
-                  size={20}
-                />
+                <ArrowRight className="icon" size={20} />
               </Button>
             </Link>
+
             <a href="tel:+911234567890">
-              <Button size="lg" variant="outline" className="border-2">
-                <Phone className="mr-2" size={20} />
+              <Button size="lg" variant="outline" className="cta-secondary-btn">
+                <Phone className="icon" size={20} />
                 Call Us Now
               </Button>
             </a>
           </div>
 
-          {/* Quick Contact Info */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-xl mx-auto pt-8">
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card shadow-soft">
-              <Phone className="w-5 h-5 text-primary" />
-              <div className="text-left">
-                <p className="text-xs text-muted-foreground">Call Us</p>
-                <p className="font-semibold">+91 12345 67890</p>
+          <div className="cta-contact">
+            <div className="contact-card">
+              <Phone className="contact-icon" />
+              <div className="contact-info">
+                <p className="contact-label">Call Us</p>
+                <p className="contact-value">+91 8826023765</p>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card shadow-soft">
-              <Mail className="w-5 h-5 text-primary" />
-              <div className="text-left">
-                <p className="text-xs text-muted-foreground">Email Us</p>
-                <p className="font-semibold">info@scitsghaziabad.com</p>
+
+            <div className="contact-card">
+              <Mail className="contact-icon" />
+              <div className="contact-info">
+                <p className="contact-label">Email Us</p>
+                <p className="contact-value">scitsgzbofficial@gmail.com</p>
               </div>
             </div>
           </div>

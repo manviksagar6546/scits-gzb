@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./Navbar.scss";
 
 const Navbar = () => {
@@ -11,31 +12,28 @@ const Navbar = () => {
         {/* Logo Section */}
         <a href="/" className="navbar__logo">
           <div className="navbar__icon">
-            {/* Replace SVG with your actual logo image */}
-            {/* <img
-              src="/images/scitslogo.png"
-              alt="SCITS Logo"
-              className="navbar__image"
-            /> */}
+            {/* logo image */}
+            <img src="/public/Images/scitslogo.png" alt="SCITS Logo" className="navbar__image" />
           </div>
           <div className="navbar__text">
-            <span className="navbar__brand">SCITS</span>
-            <span className="navbar__location">Ghaziabad</span>
+            {/* <span className="navbar__brand">SCITS</span> */}
+            {/* <span className="navbar__location">Ghaziabad</span> */}
           </div>
         </a>
-
+        
         {/* Desktop Links */}
         <nav className="navbar__links">
-          <a href="/" className="active">
+          {/* <a href="/" className="active"> */}
+          <a href="/" >
             Home
           </a>
           <a href="/about">About</a>
           <a href="/courses">Courses</a>
           <a href="/gallery">Gallery</a>
           <a href="/contact">Contact</a>
-          <a href="/contact">
+          {/* <a href="/contact">
             <button className="enroll-btn">Enroll Now</button>
-          </a>
+          </a> */}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -88,7 +86,7 @@ const Navbar = () => {
         <a href="/contact" onClick={toggleMenu}>
           Contact
         </a>
-        <button className="enroll-btn mobile-btn">Enroll Now</button>
+        {/* <button className="enroll-btn mobile-btn">Enroll Now</button> */}
       </div>
     </header>
   );

@@ -1,166 +1,168 @@
-// Animation delay classes for staggered animations (0.05s increments)
-.delay-0 {
-    animation-delay: 0s;
-}
+.gallery-page {
+  background-color: #f8faff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
 
-.delay-1 {
-    animation-delay: 0.05s;
-}
+  .gallery-main {
+    flex: 1;
+    padding: 2rem 1rem;
+    text-align: center;
+    animation: fadeIn 1s ease;
 
-.delay-2 {
-    animation-delay: 0.1s;
-}
+    .gallery-heading {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: #640000;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      display: inline-block;
 
-.delay-3 {
-    animation-delay: 0.15s;
-}
-
-.delay-4 {
-    animation-delay: 0.2s;
-}
-
-.delay-5 {
-    animation-delay: 0.25s;
-}
-
-.delay-6 {
-    animation-delay: 0.3s;
-}
-
-.delay-7 {
-    animation-delay: 0.35s;
-}
-
-.delay-8 {
-    animation-delay: 0.4s;
-}
-
-// Page layout
-.page-container {
-    min-height: 100vh;
-}
-
-// Hero section
-.hero-section {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-    background-color: hsl(var(--secondary) / 0.3);
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
+      &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff0000, #6c0000);
+        margin: 0.6rem auto 0;
+        border-radius: 5px;
+        animation: slideIn 1s ease;
+      }
     }
 
-    .hero-content {
-        text-align: center;
-        max-width: 48rem;
-        margin: 0 auto;
-    }
+    .gallery-section {
+      display: flex;
+      justify-content: center;
 
-    .hero-badge {
-        color: hsl(var(--primary));
-        font-weight: 600;
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    .hero-title {
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
-
-        @media (min-width: 768px) {
-            font-size: 3rem;
-        }
-    }
-
-    .hero-description {
-        font-size: 1.125rem;
-        color: hsl(var(--muted-foreground));
-    }
-}
-
-// Filter section
-.filter-section {
-    padding: 2rem 0;
-    border-bottom: 1px solid hsl(var(--border));
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .filter-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-    }
-}
-
-// Gallery grid section
-.gallery-section {
-    padding: 5rem 0;
-
-    .gallery-grid {
+      .gallery-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.8rem;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 1rem;
+      }
 
-        @media (min-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
+      .gallery-card {
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        cursor: pointer;
+        transform: translateY(0);
+        transition: all 0.4s ease;
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
-        @media (min-width: 1024px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
+        .image-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
 
-    .gallery-item {
-        .gallery-image {
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
-            position: relative;
-            overflow: hidden;
-        }
+          .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+          }
 
-        .gallery-placeholder {
+          &:hover .gallery-image {
+            transform: scale(1.1);
+            filter: brightness(70%);
+          }
+
+          .image-overlay {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(2px);
+
+            h3 {
+              font-size: 1.4rem;
+              text-transform: capitalize;
+              letter-spacing: 1px;
+            }
+          }
+
+          &:hover .image-overlay {
+            opacity: 1;
+          }
         }
+      }
     }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .gallery-main {
+      .gallery-heading {
+        font-size: 2rem;
+      }
+
+      .gallery-section {
+        .gallery-grid {
+          gap: 1.2rem;
+        }
+
+        .gallery-card {
+          .gallery-image {
+            height: 200px;
+          }
+
+          .image-overlay h3 {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-main {
+      padding: 1.5rem 0.8rem;
+
+      .gallery-heading {
+        font-size: 1.8rem;
+      }
+    }
+  }
 }
 
-// Info section  
-.info-section {
-    padding: 5rem 0;
-    background-color: hsl(var(--secondary) / 0.3);
+/* ✨ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    .info-content {
-        max-width: 48rem;
-        margin: 0 auto;
-        text-align: center;
-
-        .info-title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-
-            @media (min-width: 768px) {
-                font-size: 2.25rem;
-            }
-        }
-
-        .info-description {
-            font-size: 1.125rem;
-            color: hsl(var(--muted-foreground));
-        }
-    }
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 80px;
+    opacity: 1;
+  }
 }

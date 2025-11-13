@@ -18,12 +18,12 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 12345 67890", "+91 98765 43210"],
+      details: ["+91 12345 67890"],
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@scitsghaziabad.com", "admission@scitsghaziabad.com"],
+      details: ["info@scitsghaziabad.com"],
     },
     {
       icon: MapPin,
@@ -38,14 +38,14 @@ const Contact = () => {
   ];
 
   return (
-    <div className="page-container">
+    <div className="contact-page">
       <Navbar />
 
       <main>
         {/* Hero Section */}
-        <section className="hero-section">
-          <div className="container">
-            <div className="hero-content animate-fade-in-up">
+        <section className="contact-hero">
+          <div className="hero-container">
+            <div className="hero-content">
               <span className="hero-badge">Contact Us</span>
               <h1 className="hero-title">Get In Touch With Us</h1>
               <p className="hero-description">
@@ -58,13 +58,10 @@ const Contact = () => {
 
         {/* Contact Info Cards */}
         <section className="contact-section">
-          <div className="container">
+          <div className="contact-container">
             <div className="contact-cards">
               {contactInfo.map((info, index) => (
-                <Card
-                  key={index}
-                  className={`contact-card hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-scale-in delay-${index}`}
-                >
+                <Card key={index} className="contact-card">
                   <div className="contact-icon">
                     <info.icon />
                   </div>
@@ -80,30 +77,22 @@ const Contact = () => {
 
             <div className="contact-form-section">
               {/* Contact Form */}
-              <Card className="p-8 animate-fade-in-up">
-                <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Full Name *</label>
+              <Card className="contact-form-card">
+                <h2 className="form-heading">Send Us a Message</h2>
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label>Full Name *</label>
                       <Input placeholder="Your name" required />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">
-                        Phone Number *
-                      </label>
-                      <Input
-                        type="tel"
-                        placeholder="+91 XXXXX XXXXX"
-                        required
-                      />
+                    <div className="form-group">
+                      <label>Phone Number *</label>
+                      <Input type="tel" placeholder="+91 XXXXX XXXXX" required />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">
-                      Email Address *
-                    </label>
+                  <div className="form-group">
+                    <label>Email Address *</label>
                     <Input
                       type="email"
                       placeholder="your.email@example.com"
@@ -111,11 +100,9 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">
-                      Course Interested In
-                    </label>
-                    <select className="w-full px-3 py-2 border border-input rounded-lg bg-background">
+                  <div className="form-group">
+                    <label>Course Interested In</label>
+                    <select className="form-select">
                       <option>Select a course</option>
                       <option>Basic Computer Course</option>
                       <option>Advanced Excel</option>
@@ -125,8 +112,8 @@ const Contact = () => {
                     </select>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Message *</label>
+                  <div className="form-group">
+                    <label>Message *</label>
                     <Textarea
                       placeholder="Tell us about your requirements..."
                       rows={5}
@@ -134,42 +121,32 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full gradient-primary shadow-soft hover:shadow-medium transition-all"
-                  >
+                  <Button type="submit" className="submit-btn">
                     Send Message
                   </Button>
                 </form>
               </Card>
 
-              {/* Map */}
-              <div className="animate-fade-in-up">
-                <Card className="p-8 h-full">
-                  <h2 className="text-2xl font-bold mb-6">Find Us</h2>
-                  <div className="aspect-video bg-secondary rounded-lg overflow-hidden mb-6">
-                    {/* Placeholder for Google Maps */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-center p-6">
-                        <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                        <p className="text-muted-foreground">Map location</p>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          Near Main Market, Ghaziabad
-                        </p>
-                      </div>
-                    </div>
+              {/* Map
+              <Card className="contact-map-card">
+                <h2 className="map-heading">Find Us</h2>
+                <div className="map-container">
+                  <div className="map-placeholder">
+                    <MapPin className="map-icon" />
+                    <p>Map location</p>
+                    <span>Near Main Market, Ghaziabad</span>
                   </div>
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground">
-                      Our institute is conveniently located near the main market
-                      area of Ghaziabad, easily accessible by public transport.
-                    </p>
-                    <Button variant="outline" className="w-full">
-                      Get Directions
-                    </Button>
-                  </div>
-                </Card>
-              </div>
+                </div>
+                <div className="map-info">
+                  <p>
+                    Our institute is conveniently located near the main market
+                    area of Ghaziabad, easily accessible by public transport.
+                  </p>
+                  <Button variant="outline" className="direction-btn">
+                    Get Directions
+                  </Button>
+                </div>
+              </Card> */}
             </div>
           </div>
         </section>

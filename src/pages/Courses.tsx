@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react";
+
+import "./Courses.scss";
 import {
   Monitor,
   TrendingUp,
@@ -13,7 +16,6 @@ import {
   Award,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import "./Courses.scss";
 
 const Courses = () => {
   const courses = [
@@ -112,86 +114,103 @@ const Courses = () => {
       ],
       slug: "indigo",
     },
+    {
+      icon: Globe,
+      title: "Digital Marketing Course (Complete Program)",
+      duration: "4 Months",
+      level: "Beginner to Advanced",
+      description:
+        "Master the essential digital marketing skills including SEO, social media, Google Ads, and analytics for business growth.",
+      topics: [
+        "Introduction to Digital Marketing",
+        "Search Engine Optimization (SEO)",
+        "Search Engine Marketing (Google Ads)",
+        "Social Media Marketing (Facebook, Instagram, LinkedIn)",
+        "Email Marketing & Automation",
+        "Content Marketing Strategy",
+        "YouTube & Video Marketing",
+        "Google Analytics & Data Insights",
+        "Affiliate & Influencer Marketing",
+        "Online Reputation Management (ORM)",
+      ],
+      slug: "blue",
+    },
   ];
 
   return (
-    <div className="page-container">
+    <div className="courses-page">
       <Navbar />
 
-      <main>
+      <main className="courses-main">
         {/* Hero Section */}
-        <section className="hero-section">
-          <div className="container">
-            <div className="hero-content animate-fade-in-up">
-              <span className="hero-badge">Our Courses</span>
-              <h1 className="hero-title">Professional Training Programs</h1>
-              <p className="hero-description">
+        <section className="courses-hero">
+          <div className="courses-container">
+            <div className="courses-hero-content">
+              <span className="courses-hero-badge">Our Courses</span>
+              <h1 className="courses-hero-title">
+                Professional Training Programs
+              </h1>
+              <p className="courses-hero-description">
                 Choose from our comprehensive range of industry-relevant courses
-                designed to accelerate your career growth
+                designed to accelerate your career growth.
               </p>
             </div>
           </div>
         </section>
 
         {/* Courses List */}
-        <section className="courses-section">
-          <div className="container">
+        <section className="courses-list-section">
+          <div className="courses-container">
             <div className="courses-list">
               {courses.map((course, index) => (
                 <Card
                   key={index}
-                  className={`overflow-hidden hover:shadow-strong transition-all duration-300 animate-fade-in-up delay-${index}`}
+                  className={`course-card course-${course.slug}`}
                 >
-                  <div className="grid md:grid-cols-[300px_1fr] gap-8">
-                    {/* Left Side - Course Info */}
-                    <div className={`p-8 course-${course.slug} text-white`}>
-                      <div className="space-y-6">
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                          <course.icon className="w-8 h-8" />
-                        </div>
-
-                        <div>
-                          <h2 className="text-2xl font-bold mb-2">
-                            {course.title}
-                          </h2>
-                          <p className="text-white/90">{course.description}</p>
-                        </div>
-
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <Clock className="w-5 h-5" />
-                            <div>
-                              <p className="text-sm opacity-90">Duration</p>
-                              <p className="font-semibold">{course.duration}</p>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <Award className="w-5 h-5" />
-                            <div>
-                              <p className="text-sm opacity-90">Level</p>
-                              <p className="font-semibold">{course.level}</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <Link to="/contact">
-                          <Button className="w-full bg-white text-gray-900 hover:bg-white/90">
-                            Enroll Now
-                          </Button>
-                        </Link>
+                  <div className="course-content">
+                    {/* Left Side */}
+                    <div className="course-left">
+                      <div className="course-icon-wrapper">
+                        <course.icon className="course-icon" />
                       </div>
+
+                      <div className="course-info">
+                        <h2 className="course-title">{course.title}</h2>
+                        <p className="course-description">
+                          {course.description}
+                        </p>
+                      </div>
+
+                      <div className="course-meta">
+                        <div className="course-meta-item">
+                          <Clock className="meta-icon" />
+                          <div>
+                            <p className="meta-label">Duration</p>
+                            <p className="meta-value">{course.duration}</p>
+                          </div>
+                        </div>
+                        <div className="course-meta-item">
+                          <Award className="meta-icon" />
+                          <div>
+                            <p className="meta-label">Level</p>
+                            <p className="meta-value">{course.level}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <Link to="/contact" className="enroll-link">
+                        <Button className="enroll-button">Enroll Now</Button>
+                      </Link>
                     </div>
 
-                    {/* Right Side - Topics */}
-                    <div className="p-8">
-                      <h3 className="text-xl font-semibold mb-6">
-                        What You'll Learn
-                      </h3>
-                      <div className="grid md:grid-cols-2 gap-4">
+                    {/* Right Side */}
+                    <div className="course-right">
+                      <h3 className="course-topics-title">What You'll Learn</h3>
+                      <div className="course-topics">
                         {course.topics.map((topic, idx) => (
-                          <div key={idx} className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                            <p className="text-muted-foreground">{topic}</p>
+                          <div key={idx} className="course-topic">
+                            <div className="topic-dot" />
+                            <p className="topic-text">{topic}</p>
                           </div>
                         ))}
                       </div>
@@ -204,9 +223,9 @@ const Courses = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="cta-section">
-          <div className="container">
-            <div className="cta-content animate-fade-in">
+        <section className="courses-cta">
+          <div className="courses-container">
+            <div className="cta-content">
               <h2 className="cta-title">Ready to Start Learning?</h2>
               <p className="cta-description">
                 Join thousands of students who have transformed their careers
@@ -215,15 +234,10 @@ const Courses = () => {
               </p>
               <div className="cta-buttons">
                 <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="gradient-primary shadow-medium hover:shadow-strong transition-all"
-                  >
-                    Enroll Now
-                  </Button>
+                  <Button className="cta-btn-primary">Enroll Now</Button>
                 </Link>
                 <Link to="/about">
-                  <Button size="lg" variant="outline" className="border-2">
+                  <Button className="cta-btn-outline">
                     Learn More About Us
                   </Button>
                 </Link>

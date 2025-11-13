@@ -28,58 +28,49 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-grid">
           {/* About Section */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-primary-foreground" />
+          <div className="footer-about">
+            <div className="footer-logo">
+              <div className="footer-icon">
+                {/* <GraduationCap className="footer-icon-img" /> */}
+                <img
+                  src="/public/Images/scitslogo.png"
+                  alt="SCITS Logo"
+                  className="navbar__image"
+                />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-foreground">SCITS</h3>
-                <p className="text-xs text-muted-foreground">Ghaziabad</p>
+                <h3 className="footer-title">SCITS</h3>
+                <p className="footer-location">Ghaziabad</p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="footer-description">
               Your Gateway to Computer Education and Career Growth. Providing
               quality computer education since establishment.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-              >
-                <Facebook size={18} />
+            <div className="footer-socials">
+              <a href="#" className="footer-social-link">
+                <Facebook />
               </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-              >
-                <Instagram size={18} />
+              <a href="#" className="footer-social-link">
+                <Instagram />
               </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-              >
-                <Youtube size={18} />
+              <a href="#" className="footer-social-link">
+                <Youtube />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
+          <div className="footer-links">
+            <h3 className="footer-heading">Quick Links</h3>
+            <ul>
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to={link.path} className="footer-link">
                     {link.name}
                   </Link>
                 </li>
@@ -88,17 +79,12 @@ const Footer = () => {
           </div>
 
           {/* Courses */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">
-              Our Courses
-            </h3>
-            <ul className="space-y-2">
+          <div className="footer-courses">
+            <h3 className="footer-heading">Our Courses</h3>
+            <ul>
               {courses.map((course) => (
                 <li key={course}>
-                  <Link
-                    to="/courses"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to="/courses" className="footer-link">
                     {course}
                   </Link>
                 </li>
@@ -107,33 +93,39 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">
-              Contact Us
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin
-                  size={18}
-                  className="text-primary mt-0.5 flex-shrink-0"
-                />
-                <span>Near Main Market, Ghaziabad, Uttar Pradesh</span>
+          <div className="footer-contact">
+            <h3 className="footer-heading">Contact Us</h3>
+            <br />
+            <ul>
+              <li className="footer-contact-item">
+                {/* <MapPin className="footer-contact-icon" /> */}
+                <span className="mt-1 mr-3 h-5 w-5 text-blue-900">📍</span>
+                {/* <span>113-B Maliwara Pocket A, Nehru Nagar 2nd Ghaziabad</span> */}
+                <span>
+                  113-B Maliwara Pocket A
+                  <br />
+                  Nehru Nagar 2nd Ghaziabad, Uttar Pradesh
+                </span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone size={18} className="text-primary flex-shrink-0" />
-                <span>+91 12345 67890</span>
+              <br />
+              <li className="footer-contact-item">
+                {/* <Phone className="footer-contact-icon" /> */}
+                <span className="mr-3 h-5 w-5 text-blue-900">📞</span>
+                <span>+91 8826023765</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail size={18} className="text-primary flex-shrink-0" />
-                <span>info@scitsghaziabad.com</span>
+              <br />
+              <li className="footer-contact-item">
+                {/* <Mail className="footer-contact-icon" /> */}
+                <span className="mr-3 h-5 w-5 text-blue-900">📩</span>
+                <span>scitsgzbofficial@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="footer-bottom">
+          <p>
             © {new Date().getFullYear()} SCITS Ghaziabad. All rights reserved.
           </p>
         </div>
