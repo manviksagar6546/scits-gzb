@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to your Lovable project
 
 ## Project info
@@ -71,3 +72,7 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+=======
+# scits-gzb
+scits-gzb Institute Website (React + TS) – Responsive education website with React, TypeScript, SCSS, EmailJS integration. Clean UI/UX and multi-page layout.
+>>>>>>> 4355c2f7592ba30154f449fcd445ac7faf562a59
